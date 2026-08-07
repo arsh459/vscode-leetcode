@@ -47,10 +47,10 @@ export class LeetCodeNode {
         return this.isProblemNode;
     }
 
-    public get previewCommand(): Command {
+    public get openCommand(): Command {
         return {
-            title: "Preview Problem",
-            command: "leetcode.previewProblem",
+            title: "Show Problem",
+            command: "leetcode.showProblem",
             arguments: [this],
         };
     }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Practice</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M5.72 3.28a.75.75 0 0 1 0 1.06L2.81 7.25h8.44a.75.75 0 0 1 0 1.5H2.81l2.91 2.91a.75.75 0 1 1-1.06 1.06L.53 8.53a.75.75 0 0 1 0-1.06l4.13-4.19a.75.75 0 0 1 1.06 0Z" fill="#303133" fill-rule="nonzero" transform="translate(1.5, 0)"></path>
+        <path d="M9.5 1.5a.75.75 0 0 1 .75.75v11.5a.75.75 0 0 1-1.5 0V2.25a.75.75 0 0 1 .75-.75Z" fill="#303133" fill-rule="nonzero" transform="translate(4.5, 0)"></path>
+    </g>
+</svg>

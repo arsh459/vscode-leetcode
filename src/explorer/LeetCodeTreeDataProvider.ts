@@ -35,7 +35,7 @@ export class LeetCodeTreeDataProvider implements vscode.TreeDataProvider<LeetCod
                 collapsibleState: vscode.TreeItemCollapsibleState.None,
                 command: {
                     command: "leetcode.signin",
-                    title: "Sign in to LeetCode",
+                    title: "Sign in",
                 },
             };
         }
@@ -52,7 +52,7 @@ export class LeetCodeTreeDataProvider implements vscode.TreeDataProvider<LeetCod
             tooltip: this.getSubCategoryTooltip(element),
             collapsibleState: element.isProblem ? vscode.TreeItemCollapsibleState.None : vscode.TreeItemCollapsibleState.Collapsed,
             iconPath: this.parseIconPathFromProblemState(element),
-            command: element.isProblem ? element.previewCommand : undefined,
+            command: element.isProblem ? element.openCommand : undefined,
             resourceUri: element.uri,
             contextValue,
         };
@@ -64,7 +64,7 @@ export class LeetCodeTreeDataProvider implements vscode.TreeDataProvider<LeetCod
                 new LeetCodeNode(
                     Object.assign({}, defaultProblem, {
                         id: "notSignIn",
-                        name: "Sign in to LeetCode",
+                        name: "Sign in",
                     }),
                     false
                 ),

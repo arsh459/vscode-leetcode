@@ -76,7 +76,7 @@ class LeetCodeManager extends EventEmitter {
 
     public async handleInputCookieSignIn(): Promise<void> {
         const cookie: string | undefined = await vscode.window.showInputBox({
-            prompt: 'Enter LeetCode Cookie',
+            prompt: 'Enter session cookie',
             password: true,
             ignoreFocusOut: true,
             validateInput: (s: string): string | undefined =>
@@ -96,8 +96,8 @@ class LeetCodeManager extends EventEmitter {
                 description: '[Recommended]'
             },
             {
-                label: 'LeetCode Cookie',
-                detail: 'Use LeetCode cookie copied from browser to login',
+                label: 'Cookie',
+                detail: 'Use the session cookie copied from your browser to log in',
                 value: 'Cookie',
             }
         )
