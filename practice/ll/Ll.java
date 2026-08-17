@@ -82,9 +82,8 @@ class Ll {
 
     }
 
-
+    // insert at index
     public void insert(int i, String data){
-        System.out.println(i+" "+size);
         if(i>size || i<0){
             System.out.println("invalid value");
             return;
@@ -124,14 +123,54 @@ class Ll {
     }
 
 
+    // very important using iteration
+    public void reverse(){
+        Node prevNode= null;
+        Node currNode=head;
+        Node nextNode = head.next;
+        while(nextNode!=null){
+            currNode.next=prevNode;
+            prevNode=currNode;
+            currNode=nextNode;
+            nextNode=nextNode.next;
+        }
+        currNode.next=prevNode;
+        head=currNode;
+    }
+
+    // very important using recursion
+    public Node reverseUsingRec(Node node){
+        if(head==null || node.next==null){
+            head=node;
+            return node;
+        }
+        Node newNode = reverseUsingRec(node.next);
+        newNode.next=node;
+        node.next=null;
+        return node;
+    }
+
+    public Node swapTwo(Node head){
+        if(head.next==null){
+            return head;
+        }
+        Node newHead = swapTwo(head.next.next);
+        Node prevNode=head;
+        Node currNode=head.next;
+
+        newHead.next=prevNode;
+        prevNode.next=currNode;
+        currNode.next=null;
+        return currNode;
+    }
     public static void main(String[] args){
         Ll list = new Ll();
         list.addLast("b");
-        // list.addLast("c");
-        // list.addLast("d");
+        list.addLast("c");
+        list.addLast("d");
         // list.addLast("e");
-        list.add("a");
-        list.insert(3, "k");
+        // list.add("a");
+        // list.insert(3, "k");
         list.printList();
         
         // list.delete();
@@ -139,7 +178,11 @@ class Ll {
 
         // list.deleteLast();
         // list.printList();
-
         // System.out.print(list.getSize()); ;
+
+        // list.reverseUsingRec(list.head);
+
+        list.swapTwo(list.head);
+        list.printList();
     }
 }
