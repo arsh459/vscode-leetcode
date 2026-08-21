@@ -183,7 +183,16 @@ public class Intro {
         // Subtree of another tree - we have to find if one tree is subtree of another tree
         // see leetcode question of sub-tree of another tree
 
-        // sum of nodes at kth level // for tomorrow for practice
+        // sum of nodes at kth level // for tomorrow for practice means from top
+        public int sumAtkthLevel(Node root, int k, int level){
+            if(root==null){
+                return 0;
+            }
+            if(level==k){
+                return root.data;
+            }
+            return sumAtkthLevel(root.left, k, level+1) + sumAtkthLevel(root.right, k, level+1);
+        }
     }
 
 
@@ -191,17 +200,19 @@ public class Intro {
         int nodes[] = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
         BinaryTree bt= new BinaryTree();
         Node root = bt.buildTreePreorder(nodes);
-        System.out.println(root.data);
+        // System.out.println(root.data);
         bt.traverseLevelorder(root);
         System.out.println(); 
 
-        System.out.print(bt.countNodes(root)); 
-        System.out.print(bt.sumNodes(root)); 
-        System.out.println(bt.heightOfTree(root)); 
-        System.out.println(bt.diameter(root)); 
+        // System.out.print(bt.countNodes(root)); 
+        // System.out.print(bt.sumNodes(root)); 
+        // System.out.println(bt.heightOfTree(root)); 
+        // System.out.println(bt.diameter(root)); 
 
-        System.out.println(bt.HeightAnddiameterOfNode(root).dia);
-        System.out.println(bt.HeightAnddiameterOfNode(root).ht);
+        // System.out.println(bt.HeightAnddiameterOfNode(root).dia);
+        // System.out.println(bt.HeightAnddiameterOfNode(root).ht);
+
+        System.out.print(bt.sumAtkthLevel(root,1,1));
 
     }
 }
