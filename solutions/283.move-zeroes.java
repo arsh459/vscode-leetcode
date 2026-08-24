@@ -41,10 +41,15 @@
 // @lc code=start
 class Solution {
     public void moveZeroes(int[] nums) {
+
+        // time complexity is O(n) in worst, best and average case
+        // space complexity - O(1) as only i and j are created, nothing else
+
+
         int i=0;  // keeping track of the zero
         int j=0;
 
-        // finding first zero
+        // finding first zero 
         while(i<nums.length){
             if(nums[i]==0){
                 break;

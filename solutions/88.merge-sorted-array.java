@@ -74,8 +74,42 @@
 
 // @lc code=start
 class Solution {
+
+    // insert in an array
+    public void insert(int[] nums1, int i, int val){
+        for(int j=nums1.length-1;j>i;j--){
+            nums1[j]=nums1[j-1];
+        }
+        nums1[i]=val;
+    }
+
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        
+
+        // Ways to do this 
+        // 1. Can have a third array and do insertion there it will take O(m+n) and S(m+n)
+        // 2. We can have it in nums1 array and do the insertion it can have O(m*n) as i have to perform 
+        // insertion for every element of 2nd array(m) and insertion takes n operations so O(m*n) space 
+        // complexity will be O(1).
+        // 3. I have to find a way to do inplace insertion so that it O(m+n) and S(1). There is
+        // a way with two pointers where we are
+
+        int i=0;
+        int j=0;
+
+        while(i<m+n && j<n){
+            if(nums1[i]>=nums2[j]){
+                insert(nums1, i, nums2[j]);
+                j++;
+                i++;
+            }else{
+                i++;
+            }
+        }
+
+        while(j!=n){
+            nums1[m+j]=nums2[j];
+            j++;
+        }
     }
 }
 // @lc code=end
