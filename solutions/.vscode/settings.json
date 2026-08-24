@@ -1,0 +1,22 @@
+{
+    // No autocomplete while typing
+    "editor.quickSuggestions": {
+        "comments": "off",
+        "strings": "off",
+        "other": "off"
+    },
+    "editor.suggestOnTriggerCharacters": false,
+
+    // No parameter hints
+    "editor.parameterHints.enabled": false,
+
+    // Hide error/warning squiggly lines
+    "editor.renderValidationDecorations": "off",
+
+    // Disable inline/ghost suggestions
+    "editor.inlineSuggest.enabled": false,
+
+    // Hide Problems decorations
+    "problems.visibility": false
+}
+
