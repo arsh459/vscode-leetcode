@@ -56,7 +56,18 @@
 // @lc code=start
 class Solution {
     public int maxArea(int[] height) {
-        
+        // Brute force
+        int maxArea= Integer.MIN_VALUE;
+        int n = height.length;
+        for(int i=0;i<n-1;i++){
+            for(int j=i+1;j<n;j++){
+                int area = Math.min(height[i],height[j]) * (j-i);
+                if(area>maxArea){
+                    maxArea = area;
+                }
+            }
+        }
+        return maxArea;
     }
 }
 // @lc code=end

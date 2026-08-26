@@ -62,7 +62,38 @@
 // @lc code=start
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int i
+
+        // Brute force - O(n^2) - Here pointer solution will not work as we have to use two arrays
+        // one to maintain original indexes and one to maintain element values in sorted order and we have
+        // to write custom sort function
+        // int n = nums.length;
+        // int[] res= new int[2];
+        // for(int i=0;i<n;i++){
+        //     for(int j=i+1;j<n;j++){
+        //         if(nums[i]+nums[j]==target){
+        //             res[0]=i;
+        //             res[1]=j;
+        //             break;
+        //         }
+        //     }
+        // }
+        // return res;
+
+        // Hashmap - O(n)
+        int[] res= new int[2];
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            if(hm.containsKey(target-nums[i])){
+                res[1]=i;
+                res[0]=hm.get(target-nums[i]);
+                break;
+            }else{
+                hm.put(nums[i],i);
+            }
+        } 
+        return res;
+        
+    
     }
 }
 // @lc code=end
