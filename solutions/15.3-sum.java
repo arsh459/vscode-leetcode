@@ -62,8 +62,50 @@
 
 // @lc code=start
 class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
-        
+    public List<List<Integer>> threeSum(int[] nums2) {
+        // We need to find triplets, whose sum is equal to 0
+        // 1. first solution is i just have a loop over the array and check for this
+
+        // remove duplicates from an array
+        HashSet<Integer> hs1 = new HashSet<>();
+        for(int i=0;i<nums2.length;i++){
+            hs1.add(nums2[i]);
+        }
+        hs1.size();
+
+        int[] nums = new int[hs1.size()];
+        Iterator it = hs1.iterator();
+
+        int n=0;
+        while(it.hasNext()){
+            nums[n]= (int)it.next();
+            n++;
+        }
+
+        List<List<Integer>> a = new ArrayList<>();
+        HashSet<List<Integer>> hs = new HashSet<>();
+
+        for(int i=0;i<n-2;i++){
+            for(int j=i+1;j<n-1;j++){
+                for(int k=j+1;k<n;k++){
+                    if(nums[i]+nums[j]+nums[k]==0){
+                        List<Integer> li = new ArrayList<>();
+                        li.add(nums[i]);
+                        li.add(nums[j]);
+                        li.add(nums[k]);
+
+                        if(hs.contains(li)){
+                            continue;
+                        }else{
+                            hs.add(li);
+                            a.add(li);
+                        }
+                    } 
+                }
+            }
+        }
+
+        return a;
     }
 }
 // @lc code=end

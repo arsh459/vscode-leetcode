@@ -1,4 +1,4 @@
-# Arrays
+# Arrays — SDE III Prep (Final List)
 
 **39 problems · 4 Easy / 30 Medium / 5 Hard · 10 days**
 
@@ -200,3 +200,21 @@ Arrays are ~15–20% of coding rounds. Don't overinvest — graphs (45–50) and
 | Design | 15 |
 
 ~350 total. **Protect the graphs-and-DP ratio.**
+
+---
+
+## Addendum — Final Coverage Audit
+
+Three items from the original outline that this list missed.
+
+| ✔ | # | Problem | Diff | Why it was missing | Hint? |
+|---|---|---|---|---|---|
+| [ ] | 498 | Diagonal Traverse | Med | "Diagonal traversal" was in the outline; 54/48/73 don't cover it | |
+| [ ] | 289 | Game of Life | Med | "Rearrangement in O(1) space (encoding two values in one)" — 189 is reversal, not encoding | |
+| [ ] | 1470 | Shuffle the Array | Easy | Same encoding idea, gentler. Do this first if 289 doesn't click | |
+
+**On 289:** the point is storing *both* the current and next state in one cell using spare bits (e.g. bit 0 = now, bit 1 = next), then a second pass to shift. This "pack two values into one slot" trick is the actual outline item, and 189's reversal trick is a different thing. Also has a good follow-up: *"what if the board is infinite?"* → store only live cells in a hash set of coordinates.
+
+**On 498:** the index arithmetic (direction flips, boundary handling at four different edges) is the whole problem. 1424 (Diagonal Traverse II, jagged rows) is the harder sibling — skip it.
+
+**Revised count: 42 problems.** Add these to day 9 (498, 289) and day 1 (1470) — all three are fast.
