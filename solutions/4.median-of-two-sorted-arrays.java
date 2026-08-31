@@ -53,42 +53,46 @@
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         // Brute Force - O(N) approach with first merge them and then get the median
-        // int i = 0;
-        // int j = 0;
-        // int m = nums1.length;
-        // int n = nums2.length;
-        // int k=0;
-        // int[] res = new int[m+n];
-        // while(i<m && j<n){
-        //     if(nums1[i]<nums2[j]){
-        //         res[k]=nums1[i];
-        //         i++;
-        //     }else{
-        //         res[k]= nums2[j];
-        //         j++;
-        //     }
-        //     k++;
-        // }
+        int i = 0;
+        int j = 0;
+        int m = nums1.length;
+        int n = nums2.length;
+        int k=0;
+        int[] res = new int[m+n];
+        while(i<m && j<n){
+            if(nums1[i]<nums2[j]){
+                res[k]=nums1[i];
+                i++;
+            }else{
+                res[k]= nums2[j];
+                j++;
+            }
+            k++;
+        }
 
-        // while(j<n){
-        //     res[k]=nums2[j];
-        //     j++;
-        //     k++;
-        // }
+        while(j<n){
+            res[k]=nums2[j];
+            j++;
+            k++;
+        }
         
-        // while(i<m){
-        //     res[k]=nums1[i];
-        //     i++;
-        //     k++;
-        // }
+        while(i<m){
+            res[k]=nums1[i];
+            i++;
+            k++;
+        }
         
-        // if((m+n)%2!=0){
-        //     return res[(m+n)/2];
-        // }else{
-        //     return (res[(m+n+1)/2] + res[(m+n-1)/2])/2.0; // to make it a double
-        // }
+        if((m+n)%2!=0){
+            return res[(m+n)/2];
+        }else{
+            return (res[(m+n+1)/2] + res[(m+n-1)/2])/2.0; // to make it a double
+        }
 
 
+
+        // We have to do it in next O(log(m+n)) approach will be able to do using two pointer
+        // which are making the range shorter 
+        // Now What i need to decide is how to make the range shorter the good approach
 
         // 
     }
