@@ -64,21 +64,6 @@
 
 // @lc code=start
 class Solution {
-    public boolean isStringContainsAllT(String t, String s){
-        HashMap<Character, Integer> hs = new HashMap<>();
-        for(int i=0;i<s.length();i++){
-            int count = hs.getOrDefault(s.charAt(i), 0);
-            hs.put(s.charAt(i), count+1);
-        }
-        for(int i=0;i<t.length();i++){
-            if(!hs.containsKey(t.charAt(i)) || hs.get(t.charAt(i))<=0){
-                return false;
-            }
-            hs.put(t.charAt(i), hs.get(t.charAt(i))-1);
-        }
-        return true;
-    }
-
     public String minWindow(String s, String t) {
         int n = s.length();
         int m = t.length();
@@ -86,23 +71,42 @@ class Solution {
             return "";
         }
 
-        String minString = "";
+        int count =0;
+        int[] chars = new int[128];
+        for(int k=0;k<m;k++){
+            chars[t.charAt(k)]++;
+            count++;
+        }
         int min=Integer.MAX_VALUE;
-        String str = s.substring(0,m-1);
+        int start=-1;
         
         int i=0;
-        for(int j=m-1;j<n;j++){
-            str= str + s.charAt(j);
-            while(isStringContainsAllT(t, str)){
-                if(min>(j+1-i)){
+        for(int j=0;j<n;j++){
+            Character ch = s.charAt(j);
+            if(chars[ch]>0){
+                count--;
+            }
+            chars[ch]--;
+
+            while(count==0){
+                if(j+1-i<min){
                     min= j+1-i;
-                    minString=str;
+                    start =i;
+                }            
+                if(chars[s.charAt(i)]==0){
+                    count++;     
                 }
+                chars[s.charAt(i)]++;
                 i++;
-                str=str.substring(1);
             }
         }
-        return minString;
+
+        if(start==-1){
+            return "";
+        }
+
+
+        return s.substring(start, start+min);
     }
 }
 // @lc code=end
