@@ -14,7 +14,7 @@ Week/Day numbering is relative, not calendar-dated. Miss a day, shift; the plan 
 | Day | Focus | Problems | Done |
 |---|---|---|---|
 | 1 | Two pointers | 283 , 88 , 15 , 11 , **438** | [ ] |
-| 2 | Variable window | 3, 209, 424 | [ ] |
+| 2 | Variable window | 3, 209, 424 | [ 424 ] |
 | 3 | Window + prefix sum | 76, 560, 525 | [ ] |
 | 4 | Difference array, prefix/suffix, Kadane | 1109, 238, 53 | [ ] |
 | 5 | Kadane, partition, quickselect | 152, 75, 215 | [ ] |

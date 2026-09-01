@@ -52,7 +52,22 @@
 // @lc code=start
 class Solution {
     public int characterReplacement(String s, int k) {
-        
+        int left=0;
+        int n=s.length();
+        int maxFreq=0;
+        int max= 0;
+        HashMap<Character, Integer> hm =new HashMap<>(); 
+        for(int right=0;right<n;right++){
+            int count =  hm.getOrDefault(s.charAt(right), 0)+1;
+            hm.put(s.charAt(right), count);
+            maxFreq = Math.max(maxFreq, count);
+            if((right+1-left)-maxFreq>k){
+                hm.put(s.charAt(left), hm.get(s.charAt(left))-1);
+                left++;
+            }
+            max= Math.max(right+1-left,max);
+        }
+        return max;
     }
 }
 // @lc code=end
