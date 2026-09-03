@@ -53,8 +53,36 @@
 
 // @lc code=start
 class Solution {
+
+
+    // case 1  - When 0 is there we can just make currProd= 1;
+    // case 2 -  When negative numbers are even whole array product
+    // case 3 -  When negative number are odd, then we just have prod from both ends because 
+    // only either rightmost negative will be discarded or leftmost negative will be discarded
     public int maxProduct(int[] nums) {
+        int currProd=1;
+        int max = Integer.MIN_VALUE;
+
+        // going from right to left
+        for(int i=0;i<nums.length;i++){
+            currProd*=nums[i];
+            max = Math.max(currProd, max);
+            if(currProd==0){
+                currProd=1;
+            }
+        }
+
+        // going from left to right
+        currProd=1;
+        for(int i=nums.length-1;i>=0;i--){
+            currProd*=nums[i];
+            max = Math.max(currProd, max);
+            if(currProd==0){
+                currProd=1;
+            }
+        }
         
+        return max;
     }
 }
 // @lc code=end
