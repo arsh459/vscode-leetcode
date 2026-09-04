@@ -57,17 +57,36 @@
 class Solution {
     public int maxArea(int[] height) {
         // Brute force
-        int maxArea= Integer.MIN_VALUE;
-        int n = height.length;
-        for(int i=0;i<n-1;i++){
-            for(int j=i+1;j<n;j++){
-                int area = Math.min(height[i],height[j]) * (j-i);
-                if(area>maxArea){
-                    maxArea = area;
-                }
+        // int maxArea= Integer.MIN_VALUE;
+        // int n = height.length;
+        // for(int i=0;i<n-1;i++){
+        //     for(int j=i+1;j<n;j++){
+        //         int area = Math.min(height[i],height[j]) * (j-i);
+        //         if(area>maxArea){
+        //             maxArea = area;
+        //         }
+        //     }
+        // }
+        // return maxArea;
+
+        // 2 pointer approach
+        // We will start from both the ends and calculated its water and 
+        // suppose if left<right then increment left, other wise right
+
+
+        int max=Integer.MIN_VALUE;
+        int i=0;
+        int j=height.length-1;
+        while(i<j){
+            int area = Math.min(height[i],height[j]) * (j-i);
+            max = Math.max(area, max);
+            if(height[i]<height[j]){
+                i++;
+            }else{
+                j--;
             }
         }
-        return maxArea;
+        return max;
     }
 }
 // @lc code=end

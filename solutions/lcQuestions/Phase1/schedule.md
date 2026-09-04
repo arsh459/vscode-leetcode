@@ -13,11 +13,11 @@ Week/Day numbering is relative, not calendar-dated. Miss a day, shift; the plan 
 
 | Day | Focus | Problems | Done |
 |---|---|---|---|
-| 1 | Two pointers | 283 , 88 , 15 , 11 , **438** | [ ] |
-| 2 | Variable window | 3, 209, 424 | [ 424 ] |
-| 3 | Window + prefix sum | 76, 560, 525 | [ 76 ] |
-| 4 | Difference array, prefix/suffix, Kadane | 1109, 238, 53 | [ ] |
-| 5 | Kadane, partition, quickselect | 152, 75, 215 | [ ] |
+| 1 | Variable window | 3, 209, 424 | [ 424 ] |
+| 2 | Window + prefix sum | 76, 560, 525 | [ 76 ] |
+| 3 | Difference array, prefix/suffix, Kadane | 1109, 238, 53 | [ ] |
+| 4 | Kadane, partition, quickselect, Two pointers | 152, 75, 215, 283 , 88, 11 | [ ] |
+| 5 | Two pointers | 15 , **438** | [ ] |
 | 6 | **Revision** | Hint? set + cold: 3, 76 | [ ] |
 
 Day 1 is four new problem — use the spare time to get the sliding-window

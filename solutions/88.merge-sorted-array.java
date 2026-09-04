@@ -93,22 +93,52 @@ class Solution {
         // 3. I have to find a way to do inplace insertion so that it O(m+n) and S(1). There is
         // a way with two pointers where we are
 
+        // O(n^2)
+        // int i=0;
+        // int j=0;
+
+        // while(i<m+n && j<n){
+        //     if(nums1[i]>=nums2[j]){
+        //         insert(nums1, i, nums2[j]);
+        //         j++;
+        //         i++;
+        //     }else{
+        //         i++;
+        //     }
+        // }
+
+        // while(j!=n){
+        //     nums1[m+j]=nums2[j];
+        //     j++;
+        // }
+
+        // O(m+n) and s(m+n)
+        int[] merged = new int[m+n];
+
         int i=0;
         int j=0;
-
-        while(i<m+n && j<n){
+        while(i<m && j<n){
             if(nums1[i]>=nums2[j]){
-                insert(nums1, i, nums2[j]);
+                merged[i+j]=nums2[j];
                 j++;
-                i++;
             }else{
+                merged[i+j]=nums1[i];
                 i++;
             }
         }
 
         while(j!=n){
-            nums1[m+j]=nums2[j];
+            merged[i+j]=nums2[j];
             j++;
+        }
+
+        while(i!=m){
+            merged[i+j]=nums1[i];
+            i++;
+        }
+
+        for(int k=0;k<m+n;k++){
+            nums1[k]=merged[k];
         }
     }
 }
