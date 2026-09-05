@@ -50,39 +50,8 @@
 
 // @lc code=start
 class Solution {
-
-    public static boolean isAnagram(String s, String p){
-        HashMap<Character, Integer> hm = new HashMap<>();
-
-        for(int i=0;i<s.length();i++){
-            Integer count = hm.getOrDefault(hm.get(Character.valueOf(s.charAt(i))), 0);
-            System.out.println(count);
-            hm.put(Character.valueOf(s.charAt(i)), count+1);
-        }
-        System.out.println(s);
-        System.out.println(p);
-        System.out.println(hm);
-
-        for(int i=0;i<p.length();i++){
-            if(!hm.containsKey(Character.valueOf(p.charAt(i)))){
-                return false;
-            }
-            Integer count = hm.get(Character.valueOf(p.charAt(i)));
-            if(count-1<=0){
-                hm.remove(Character.valueOf(p.charAt(i)));
-            }else{
-                hm.put(Character.valueOf(p.charAt(i)), count-1);
-            }
-        }
-        if(hm.size()==0){
-            return true;
-        }
-        return false;
-
-    }
-
     public List<Integer> findAnagrams(String s, String p) {
-        List<Integer> res = new ArrayList<>(); 
+        List<Integer> res = new ArrayList<>();
         int pL = p.length();
         int sL = s.length();
 
@@ -90,10 +59,30 @@ class Solution {
             return res;
         }
 
-        for(int i=0;i<=sL-pL;i++){
-            String sub= s.substring(i, i + pL);
-            if(isAnagram(sub, p)){
-                res.add(i);
+        int[] need = new int[26];
+        for(int i=0;i<pL;i++){
+            need[p.charAt(i)-'a']++;
+        }
+        int missing = pL;
+
+
+        for(int i=0;i<sL;i++){
+            int in = s.charAt(i)-'a';
+            need[in]--;
+            if(need[in]>=0){
+                missing--;
+            }
+
+            if(i>=pL){
+                int out = s.charAt(i-pL)-'a';
+                need[out]++;
+                if(need[out]>0){
+                    missing++;
+                }
+            }
+
+            if(missing==0){
+                res.add(i-pL+1);
             }
         }
 

@@ -62,50 +62,68 @@
 
 // @lc code=start
 class Solution {
-    public List<List<Integer>> threeSum(int[] nums2) {
+    public List<List<Integer>> threeSum(int[] nums) {
         // We need to find triplets, whose sum is equal to 0
         // 1. first solution is i just have a loop over the array and check for this
 
-        // remove duplicates from an array
-        HashSet<Integer> hs1 = new HashSet<>();
-        for(int i=0;i<nums2.length;i++){
-            hs1.add(nums2[i]);
-        }
-        hs1.size();
+        // brute force
+        // List<List<Integer>> a = new ArrayList<>();
+        // HashSet<List<Integer>> hs = new HashSet<>();
 
-        int[] nums = new int[hs1.size()];
-        Iterator it = hs1.iterator();
+        // int n = nums.length;
+        // for(int i=0;i<n-2;i++){
+        //     for(int j=i+1;j<n-1;j++){
+        //         for(int k=j+1;k<n;k++){
+        //             if(nums[i]+nums[j]+nums[k]==0){
+        //                 List<Integer> li = new ArrayList<>();
+        //                 li.add(nums[i]);
+        //                 li.add(nums[j]);
+        //                 li.add(nums[k]);
+        //                 Collections.sort(li);
+        //                 if(hs.contains(li)){
+        //                     continue;
+        //                 }else{
+        //                     hs.add(li);
+        //                     a.add(li);
+        //                 }
+        //             } 
+        //         }
+        //     }
+        // }
 
-        int n=0;
-        while(it.hasNext()){
-            nums[n]= (int)it.next();
-            n++;
-        }
+        // return a;
 
-        List<List<Integer>> a = new ArrayList<>();
-        HashSet<List<Integer>> hs = new HashSet<>();
 
-        for(int i=0;i<n-2;i++){
-            for(int j=i+1;j<n-1;j++){
-                for(int k=j+1;k<n;k++){
-                    if(nums[i]+nums[j]+nums[k]==0){
-                        List<Integer> li = new ArrayList<>();
-                        li.add(nums[i]);
-                        li.add(nums[j]);
-                        li.add(nums[k]);
+        // Now removing the third loop using HashSet
+        // List<List<Integer>> a = new ArrayList<>();
+        // HashSet<List<Integer>> hs = new HashSet<>();
 
-                        if(hs.contains(li)){
-                            continue;
-                        }else{
-                            hs.add(li);
-                            a.add(li);
-                        }
-                    } 
-                }
-            }
-        }
+        // int n = nums.length;
+        // for(int i=0;i<n-1;i++){
+        //     HashSet<Integer> hsi= new HashSet<>();
+        //     for(int j=i+1;j<n;j++){
+        //         int k = -1*(nums[i]+nums[j]);
+        //         if(hsi.contains(k)){
+        //             List<Integer> li = new ArrayList<>();
+        //             li.add(nums[i]);
+        //             li.add(nums[j]);
+        //             li.add(k);
+        //             Collections.sort(li);
+        //             if(hs.contains(li)){
+        //                 continue;
+        //             }else{
+        //                 hs.add(li);
+        //                 a.add(li);
+        //             }
+        //         }
+        //         hsi.add(nums[j]);
+        //     }
+        // }
+        // return a;
 
-        return a;
+
+        // Now even removing the extra hashset's required
+
     }
 }
 // @lc code=end
