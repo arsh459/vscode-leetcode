@@ -2,9 +2,7 @@ package ll;
 
 import java.util.LinkedList;
 
-public class LlCF {
-
-    
+public class LlCF {    
     public static void main(String[] args){
         LinkedList<String> ll = new LinkedList<>(); 
         ll.add("b");

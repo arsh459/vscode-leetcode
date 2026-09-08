@@ -1,5 +1,9 @@
 package ll;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+
 // here there is no need to use this we can directly write head
 
 class Ll {
@@ -163,6 +167,48 @@ class Ll {
         currNode.next=null;
         return currNode;
     }
+
+    
+    // detect a cycle in linkedList
+    // we will use the concept of hashing
+
+    public boolean isLoopExists(Node head){
+        HashSet<Node> hm = new HashSet<>();
+        Node temp = head;
+        while(temp!=null){
+            if(hm.contains(temp)){
+                return true;
+            }
+            hm.add(temp);
+            temp = temp.next;
+        }
+
+        return false;
+    }
+
+    // Another approach hare and tortoise algo slow and fast pointer
+    // if both slow and fast pointer meet at any time, there is a loop
+
+    // One more thing to remember is where the slow and fast pointer will meet,
+
+    // the distance between the head to loop start node and loop start node to intersection will be the same
+    // It is the property
+
+    public boolean isLoopExistsFloys(Node head){
+        Node slow = head;
+        Node fast = head;
+        while(fast!=null&& fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+
+            if(slow.next==fast.next){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public static void main(String[] args){
         Ll list = new Ll();
         list.addLast("b");
