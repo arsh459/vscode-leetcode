@@ -17,4 +17,33 @@ public class KadaneAlgo {
         }
         System.out.print(maxSubArraySum);
     }
+
+        public int majorityElement(int[] nums) {
+        int candidate = -1;
+        int count =0;
+
+        for(int i=0;i<nums.length;i++){
+            if(count==0){
+                candidate = i;
+                count++;
+                continue;
+            }
+
+            if(nums[candidate]==nums[i]){
+                count++;
+            }else{
+                count--;
+            }
+        }
+
+
+        // in question it is written majority will always exist,
+        // otherwise we would have verified
+        return nums[candidate];
+    }
+
+
+
+    // moore law - Majority law - element existing > N/2 - we can do this using n^2(by 2 loops) or HashMap(O(n))
+    // next way is moore law
 }
