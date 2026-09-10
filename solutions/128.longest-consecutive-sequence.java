@@ -54,9 +54,71 @@
 
 // @lc code=start
 class Solution {
+
+    // this solution is using sort, we have to find a way without using sort
+    // public int longestConsecutive(int[] nums) {
+    //     int n = nums.length;
+    //     if(n==0 || n==1){
+    //         return n;
+    //     }
+
+    //     Arrays.sort(nums);
+    //     int maxCount = 1;
+    //     List<Integer> li = new ArrayList<>();
+    //     li.add(nums[0]);
+    //     for(int i=1;i<n;i++){
+    //         int curr = nums[i];
+    //         int prev = li.get(li.size()-1);
+
+    //         if(curr-prev==1){
+    //             li.add(curr);
+    //             maxCount = Math.max(maxCount, li.size());
+    //         }else if(curr==prev){
+    //             continue;
+    //         }else{
+    //             li= new ArrayList<>();
+    //             li.add(curr);
+    //         }
+
+    //     }
+    //     return maxCount;
+    // }
+
+
+    // one solution is we can use HashSet
+    // we save all the number in the Hashset 
+
     public int longestConsecutive(int[] nums) {
-        
+        int n = nums.length;
+        if(n==0 || n==1){
+            return n;
+        }
+        HashSet<Integer> hs = new HashSet<>();
+
+        for(int i=0;i<nums.length;i++){
+            hs.add(nums[i]);
+        }
+        int maxCount=0;
+        Iterator<Integer> it = hs.iterator();
+        while(it.hasNext()){
+            int i = it.next();
+            int count=1;
+            // means it is the start
+            if(!hs.contains(i-1)){
+                int x = i+1;
+                while(hs.contains(x)){
+                    x++;
+                    count++;
+                }
+                maxCount=Math.max(maxCount, count);
+            }
+        }
+
+        return maxCount;
     }
+
+
+
 }
 // @lc code=end
 

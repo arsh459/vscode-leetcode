@@ -32,7 +32,7 @@ skeleton clean, because days 2–3 depend on it.
 | 2 | Intervals, permutation | 56, 57, 763, 31 | [ ] |
 | 3 | Matrix, rotation, voting | 54, 48, 73, 189, 169 | [ ] |
 | 4 | HashSet, frequency, bucketing | 1 ✔, 128, 347 | [ ] |
-| 5 | Meet-in-middle, canonical keys, rolling hash | 454, 205, 187 | [ ] |
+| 5 | Meet-in-middle, canonical keys, rolling hash | 15, 454, 205, 187 | [ ] |
 | 6 | **Revision** | Hint? set + cold: 560, 41, 128 | [ ] |
 
 Do **347 three ways** (heap, bucket, quickselect) on day 4 — it's the one problem here with a
