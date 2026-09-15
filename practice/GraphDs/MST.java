@@ -96,6 +96,6 @@ public class MST {
         ArrayList<Edge> graph[] = new ArrayList[v];
         createGraph(graph);
         
-        Prims(graph,0);
+        Prims(graph);
     }
 }
