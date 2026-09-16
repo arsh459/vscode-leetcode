@@ -62,7 +62,7 @@
 
 // @lc code=start
 class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum(int[] a) {
         // We need to find triplets, whose sum is equal to 0
         // 1. first solution is i just have a loop over the array and check for this
 
@@ -123,6 +123,17 @@ class Solution {
 
 
         // Now even removing the extra hashset's required
+        // This is what interviewer wants everytime
+
+        // first sort the array
+        Arrays.sort(a);
+        int i=0;
+        int j=a.length-1;
+
+        while(i<j){
+            
+        }
+
 
     }
 }

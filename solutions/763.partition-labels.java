@@ -56,7 +56,32 @@
 // @lc code=start
 class Solution {
     public List<Integer> partitionLabels(String s) {
+
+        // we are storing till which index it is there
+        List<Integer> li = new ArrayList<>();
+        HashMap<Character,Integer> hm = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            hm.put(s.charAt(i), i);
+        }
+
+        int max = 0;
+        int i=0;
+
+        while(i<s.length()){
+            int prev = i;
+            int index = hm.get(s.charAt(i));
+            max = Math.max(index, max);
+            i++;
+
+            while(i<=max){
+                int ind = hm.get(s.charAt(i));
+                max = Math.max(ind, max);
+                i++;
+            }
+            li.add(i-prev);
+        }   
         
+        return li;
     }
 }
 // @lc code=end

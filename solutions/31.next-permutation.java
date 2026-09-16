@@ -74,8 +74,42 @@
 
 // @lc code=start
 class Solution {
-    public void nextPermutation(int[] nums) {
-        
+    public void nextPermutation(int[] a) {
+        // see permutation is find the breakpoint after where the series in decreasing order
+        // because if it is decreasing order then i don't have any permution which is greater than current 
+        //  so how we find the breapoint a[i]<a[i+1] -- it means here it is oposite of decreasing order
+
+
+        // now to replace the a[i] we have to find a element between i+1 -> n-1
+        // i+1 -> n-1 since between we have made sure it is a decreasing order list we can just use lS or bS to find firt
+        // element greater than a[i]
+
+        // now after this sort the element after in ascending order
+
+
+        int breakIndex=-1;
+        for(int i=a.length-2;i>=0;i--){
+            if(a[i]<a[i+1]){
+                breakIndex=i;
+                break;
+            }
+        }
+
+        if(breakIndex==-1){
+            Arrays.sort(a);
+            return;
+        }
+
+        for(int i=a.length-1;i>breakIndex;i--){
+            if(a[i]>a[breakIndex]){
+                int temp = a[i];
+                a[i]=a[breakIndex];
+                a[breakIndex]=temp;
+                break;
+            }
+        }
+
+        Arrays.sort(a,breakIndex+1, a.length);   
     }
 }
 // @lc code=end
