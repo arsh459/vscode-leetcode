@@ -84,7 +84,42 @@
 // @lc code=start
 class Solution {
     public int compress(char[] chars) {
-        
+
+        if(chars.length<=1){
+            return chars.length;
+        }
+
+
+        String str = "";
+
+
+
+        int count = 1;
+        for(int i=1;i<chars.length;i++){
+            if(chars[i]==chars[i-1]){
+                count++;
+                if(i==chars.length-1){
+                    str=str+chars[i]+count;
+                }
+                continue;
+            }
+            
+            str=str+chars[i-1];
+            if(count>1){
+                str=str+count;
+            }
+
+            if(i==chars.length-1){
+                str=str+chars[i];
+            }
+            count=1;
+        }
+
+        for(int i=0;i<str.length();i++){
+            chars[i]=str.charAt(i);
+        }
+
+        return str.length();
     }
 }
 // @lc code=end

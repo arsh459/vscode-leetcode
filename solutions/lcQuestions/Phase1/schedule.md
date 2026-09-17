@@ -43,10 +43,10 @@ meet-in-the-middle idea you still owe yourself.
 
 | Day | Focus | Problems | Done |
 |---|---|---|---|
-| 1 | **Carry-over** + palindromes, expand-around-center | **15, 454**, 125, 5, 647 | [ ] |
-| 2 | Anagram signatures, KMP **by hand** | 242, 49, 28 | [ ] |
-| 3 | LPS trick, compression, in-place | 459, 443, 151, 14 | [ ] |
-| 4 | Stack parsing | 20, 227, 394 | [ ] |
+| 1 | palindromes, expand-around-center |125, 5, 647 | [ ] |
+| 2 | Anagram signatures| 242, 49| [ ] |
+| 3 | Compression, in-place |  443 | [ ] |
+| 4 | Reverse words in string, sums, kmp,LPS trick, Stack parsing, longest common prefix | 151, 15, 454, 28 ,459, 20, 227, 394,14 | [ ] |
 | 5 | Sort from scratch, comparators | 912 *(merge + quick)*, 179, 406 | [ ] |
 | 6 | Bounds — write these once, reuse forever | 704, 35, 34, 744 | [ ] |
 | 7 | Rotated arrays, peak | 33, 81, 153, 162 ✔ | [ ] |
