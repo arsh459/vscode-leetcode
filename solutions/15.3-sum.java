@@ -127,14 +127,51 @@ class Solution {
 
         // first sort the array
         Arrays.sort(a);
-        int i=0;
-        int j=a.length-1;
+        
+        List<List<Integer>> ans = new ArrayList<>();
+        int i=0; 
+        int n = a.length;      
+        while(i < n){
+            int num = a[i];
+            int target = -1 * a[i];
 
-        while(i<j){
+            int j = i+1;
+            int k = n-1;
             
+            while(j<k){
+                if(a[j]+a[k] > target){
+                    k--;
+                    while(k>=0 && a[k]==a[k+1]){
+                        k--;
+                    }
+                }
+                else if(a[j]+a[k] == target){
+                    List<Integer> li = new ArrayList<>(Arrays.asList(a[i],a[j],a[k]));
+                    ans.add(li);
+                    j++;
+                    k--;
+                    while(k>=0 && a[k]==a[k+1]){
+                        k--;
+                    }
+                    while(j<n && a[j-1]==a[j]){
+                        j++;
+                    }                   
+                }
+                else if(a[j]+a[k] < target){
+                    j++;
+                    while(j<n && a[j-1]==a[j]){
+                        j++;
+                    }     
+                }
+            } 
+
+
+            i++;
+            while(i<n && a[i-1]==a[i]){
+                i++;
+            } 
         }
-
-
+        return ans;
     }
 }
 // @lc code=end

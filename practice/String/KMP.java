@@ -30,9 +30,31 @@ public class KMP {
     // if they differ and len > 0 -> we cannot extend, but the next best candidate border
     //    is the border of the border, so fall back to len = lps[len-1] (do NOT move i)
     // if len == 0 -> no border possible here, lps[i] = 0, move on
+
+
+    // O(N^2)
     public static int[] buildLps(String pat) {
         int m = pat.length();
         int[] lps = new int[m];
+
+        // for(int i=1;i<pat.length();i++){
+        //     String s = pat.substring(0,i+1);
+        //     int k = 0;
+        //     int max = 0;
+        //     String prefix ="";
+        //     String suffix = "";
+        //     while(k < i){
+        //         prefix = prefix + s.charAt(k);
+        //         suffix= s.charAt(i-k)+ suffix;
+        //         k++;
+
+        //         if(prefix.equals(suffix)){
+        //             max=prefix.length();
+        //         }
+        //     }
+        //     lps[i]= max;
+        // }
+
 
         int len = 0;
         int i = 1; // start at 1, lps[0] is always 0 since a single char has no proper prefix
@@ -61,7 +83,7 @@ public class KMP {
 
     // Time O(n + m): i only increases, so at most n increments. j goes up at most once
     // per i-step and every fallback strictly decreases it, so total fallbacks <= n.
-    // Space O(m) for the lps array.
+    // Space O(m) for the lps array. 
     public static ArrayList<Integer> search(String text, String pat) {
         ArrayList<Integer> matches = new ArrayList<>();
 

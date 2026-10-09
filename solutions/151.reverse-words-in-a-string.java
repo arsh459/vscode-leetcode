@@ -114,30 +114,49 @@ class Solution {
 
         // we have first reversed the whole string
         reverse(sb,0,n);
-        System.out.println(sb);
 
         // now we will reverse the words, to get original words
-        int i=0;
-        while(i<n){
-            int start=i;
-            while(i<n && sb.charAt(i)!=' '){
-                i++;
+        int k=0;
+        while(k<n){
+            int start=k;
+            while(k<n && sb.charAt(k)!=' '){
+                k++;
             }
-            if(start!=i){
-                reverse(sb,start,i);
+            if(start!=k){
+                reverse(sb,start,k);
             }
-            i++;
+            k++;
         }
 
 
         // Now we will move the words to there respective poistion
-        i=0;
-        while(i<n){
-            
+        // we have to make whole in O(n), so we can not delete from start
+        // instead if there is space before word we will move the word by one 
+        int j = 0;
+        for(int i=0;i<sb.length();i++){
+            char c = sb.charAt(i);
+
+            // remove leading spaces
+            if(j==0 && c== ' '){
+                continue;
+            }
+
+            if(c==' ' && sb.charAt(i-1)==' '){
+                continue;
+            }
+
+            sb.setCharAt(j, c);
+            j++;
         }
 
+        // remove trailing spaces
+        // above loop will only insert one space at the end, no matter how many spaces
+        if(sb.charAt(j-1) == ' '){
+            sb.setLength(j-1);
+        }else{
+            sb.setLength(j);
+        }
         
-
         return sb.toString();
     }
 }

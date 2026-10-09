@@ -59,7 +59,62 @@
 // @lc code=start
 class Solution {
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
-        
+
+        int n = nums1.length;
+        int count =0;
+
+        // brute force - O(N^4)
+        // for(int i=0;i<n;i++){
+        //     for(int j=0;j<n;j++){
+        //         for(int k=0;k<n;k++){
+        //             for(int l=0;l<n;l++){
+        //                 if(nums1[i]+nums2[j]+nums3[k]+nums4[l]==0){
+        //                     count++;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
+        // Using Hashmap for 1 loop - O(N^3)
+        // HashMap<Integer, Integer> hm = new HashMap<>();
+        // for(int i=0;i<n; i++ ){
+        //     hm.put(nums4[i], hm.getOrDefault(nums4[i],0)+1);
+        // }
+        // for(int i=0;i<n;i++){
+        //     for(int j=0;j<n;j++){
+        //         for(int k=0;k<n;k++){
+        //             int sum = nums1[i]+nums2[j]+nums3[k];
+        //             if(hm.containsKey(-1*sum)){
+        //                 count= count + hm.get(-1*sum);
+        //             }
+        //         }
+        //     }
+        // }
+
+        // using HashMap - removing one more loop - O(N^2)
+        // We will store the possible sum of 3rd and forth arrays
+        // in N^2 time
+
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                int sum = nums3[i] + nums4[j];
+                hm.put(sum, hm.getOrDefault(sum,0)+1);
+            }
+        }
+
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                int sum = nums1[i] + nums2[j];
+                if(hm.containsKey(-1*sum)){
+                    count = count + hm.get(-1*sum);
+                }
+            }
+        }
+
+        return count;
     }
 }
 // @lc code=end
