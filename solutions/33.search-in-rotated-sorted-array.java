@@ -56,10 +56,7 @@ class Solution {
     public static int findPivot(int[] nums){
         int i=0;
         int j=nums.length-1;
-
-        
-
-        while(i<=j){
+        while(i<j){
             if(nums[j]>nums[i]){
                 return i;
             }
@@ -70,7 +67,6 @@ class Solution {
                 j=mid;
             }
         }
-
         return i;
     }
 
@@ -79,24 +75,16 @@ class Solution {
             int mid=i + (j-i)/2;
             if(nums[mid]==target){
                 return mid;
-            }
-            if(nums[mid]>target){
+            }else if(nums[mid]>target){
                 j=mid-1;
-            }
-            if(nums[mid]<target){
+            }else{
                 i=mid+1;
             }
         }
-
         return -1;
     }
 
-
-
-
     public int search(int[] nums, int target) {
-
-
         // There are two ways
         // 1. we will first find the index where the array is rotated, so we have to find
         // the smallest element in array and then we will do binary search around that element left subArray and rightsubarray

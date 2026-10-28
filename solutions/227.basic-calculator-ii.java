@@ -52,44 +52,53 @@
 
 // @lc code=start
 class Solution {
+    // we can do one thing like, there are 4 characters,
+    // / - Do this first
+    // * - Do this
+    // +
+    // -
+
+
+
+
     // we have to follow the concept of BOD MAS
     public int calculate(String s) {
-        String str = "";
-        int n = s.length();
-        
-        // remove spaces
-        for(int i=0;i<n;i++){
-            if(s.charAt(i)==' '){
+        int n = 0;
+        char op = '+';
+        Stack<Integer> st = new Stack<>();
+        int res = 0;
+        s+='+';
+
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+
+            if(ch==' '){
                 continue;
             }
-            str = str + s.charAt(i);
-        }
-        s = str;
-        n = s.length();
-        str = ""; 
 
-        // now let;s divide
-        for(int i=0;i<n;i++){
-            str = str + s.charAt(i);
-            if(s.charAt(i)=='/'){
-                // find the numbers index around it
-
-                int k = i-1;
-
-
-
-                // left number index
-                while(k>0){
-                    if(s.charAt(k)=='*' || s.charAt(k)=='+' || s.cha ){}
-                    k--;
-                }
-
-                // right number index
-                while(){}
+            if(Character.isDigit(ch)){
+                n = n*10 + (ch-'0');
+                continue;
             }
+
+            if(op=='+'){
+                st.push(n);
+            }else if(op=='-'){
+                st.push(-1*n);
+            }else if(op=='*'){
+                st.push(st.pop() * n);
+            }else{
+                st.push(st.pop() / n);
+            }
+
+            op=ch;
+            n=0;
+        }
+        while(!st.isEmpty()){
+            res = res + st.pop();
         }
 
-
+        return res;
     }
 }
 // @lc code=end

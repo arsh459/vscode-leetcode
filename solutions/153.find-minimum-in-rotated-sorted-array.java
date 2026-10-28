@@ -72,8 +72,27 @@
 
 // @lc code=start
 class Solution {
+
+    public static int findPivot(int[] nums){
+        int i=0;
+        int j=nums.length-1;
+        while(i<j){
+            if(nums[j]>nums[i]){
+                return i;
+            }
+            int mid = i+ (j-i)/2;
+            if(nums[mid]>nums[j]){
+                i=mid+1;
+            }else{
+                j=mid;
+            }
+        }
+        return i;
+    }
+
     public int findMin(int[] nums) {
-        
+        int pivot = findPivot(nums);
+        return nums[pivot];
     }
 }
 // @lc code=end

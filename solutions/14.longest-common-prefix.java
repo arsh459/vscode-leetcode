@@ -48,7 +48,19 @@
 // @lc code=start
 class Solution {
     public String longestCommonPrefix(String[] strs) {
-        
+        if(strs==null || strs.length<1){
+            return "";
+        }
+
+        String common = strs[0];
+        for(String str : strs){
+            while(str.indexOf(common) != 0){
+                common = common.substring(0, common.length()-1);
+            }
+        }
+
+        return common;
+
     }
 }
 // @lc code=end

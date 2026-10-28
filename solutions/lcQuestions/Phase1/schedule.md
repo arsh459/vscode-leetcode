@@ -54,36 +54,43 @@ meet-in-the-middle idea you still owe yourself.
 
 | Day | Date | Focus | Problems | Done |
 |---|---|---|---|---|
-| R1 | Thu 22 Oct | Warm-up, just show up | 14, 704 | [ ] |
-| R2 | Fri 23 Oct | Lower bound / upper bound | 35, 744 | [ ] |
-| R3 | Sat 24 Oct | Both bounds, peak | 34, 162 ✔ | [ ] |
-| R4 | Sun 25 Oct | Stack parsing | 227 | [ ] |
-| R5 | Mon 26 Oct | Nested stack | 394 | [ ] |
-| R6 | Tue 27 Oct | Rotated arrays | 33, 153 | [ ] |
-| R7 | Wed 28 Oct | Duplicates in rotation, comparator | 81, 179 | [ ] |
-| R8 | Thu 29 Oct | Sort from scratch — merge | 912 *(merge sort)* | [ ] |
-| R9 | Fri 30 Oct | Sort from scratch — quick, greedy insert | 912 *(quick sort)*, 406 | [ ] |
-| R10 | Sat 31 Oct | Cold re-solve, no peeking | 15, 28, 227 | [ ] |
-| R11 | Sun 1 Nov | Buffer | Anything from R1–R10 marked Hint? or unfinished | [ ] |
+| R1–R3 | Thu 22 Oct | Warm-up, all four bounds, peak | 14, 704, 35, 744, 34, 162 | [ ✅ ] |
+| R4–R6 | Fri 23 Oct | Stack parsing, nested stack, rotated arrays | 227, 394, 33, 153 | [ ✅ ] |
+| R7 | Mon 26 Oct | Rotated with duplicates, comparator | 81, 179 | [ ✅ ] |
+| R8–R9 | Tue 27 Oct | Sort from scratch — all six; greedy insert | 912 *(see sort checklist below)*, 406 ✅ | [ ] |
+| R10 | — | Cold re-solve — deferred to after Phase 1 | 15, 28, 227 | [ ✅ ] |
+| R11 | Wed 28 Oct – Sun 1 Nov | Buffer | Anything from R1–R10 marked Hint? or unfinished | [ ] |
+
+**R8 sort checklist (912):**
+
+- [ ] **Bubble Sort** — implement it and trace one complete pass.
+- [ ] **Selection Sort** — track the minimum and swap it into place.
+- [ ] **Insertion Sort** — practice shifting elements rather than swapping.
+- [ ] **Merge Sort** — implement `merge()` separately from recursive sorting.
+- [ ] **Quick Sort** — understand `partition()` and its boundary conditions.
+- [ ] **Heap Sort** — learn heapify and the array representation of a heap.
 
 The ramp is deliberately light: 1–2 problems a day, starting with the easiest ones on the list, so
-the habit comes back before the load does. **The only goal for R1–R3 is a streak.** 14 and 704 are
-15-minute problems, and finishing them matters more than doing them well. If a day runs over, stop
-and carry the rest forward, never doubling up. R11 exists to absorb that.
+the habit comes back before the load does. R1–R3 and R4–R5 are each combined into a single day, so
+the rest of the ramp moved up three days and the buffer grew to four. R4–R6 got done Fri 23 Oct,
+but Sat 24 – Sun 25 were missed, so R7–R9 shifted, with R8 and R9 merged into one day. R10 is
+deferred to after Phase 1, which gives the buffer five days — Week 4 still starts Mon 2 Nov. If a
+day runs over, stop and carry the rest forward, never doubling up. R11 exists to absorb that.
 
 R1–R3: the four bounds (704, 35, 34, 744) are the templates every later binary search reuses, so
 get them exactly right once and the rotated-array problems in R6–R7 become the same template plus a
-"which half is sorted" check. R4: rewrite 227 from scratch with a single pass and one stack. Apply
+"which half is sorted" check. R4–R5: rewrite 227 from scratch with a single pass and one stack. Apply
 `*`/`/` immediately and push `+`/`-` as signed values. Delete the string-splicing attempt; don't
 patch it. R7: 179 is three lines of code and one transitivity argument, and the argument is the
-problem. R10 is the first cold re-solve: if any of the three stalls past 15 minutes, mark it Hint?.
+problem. R10's cold re-solve of 15, 28 and 227 happens after Phase 1: if any of the three stalls past
+15 minutes, mark it Hint?.
 
 ## Week 4 — Binary Search II + Linked List + Stacks I
 > [../Reference/binary-search.md](../Reference/binary-search.md) · [../Reference/linked-list.md](../Reference/linked-list.md) · [../Reference/stacks-queues.md](../Reference/stacks-queues.md)
 
 | Day | Date | Focus | Problems | Done |
 |---|---|---|---|---|
-| 1 | Mon 2 Nov | **Binary search on answer** | 1011, 875, 410 | [ ] |
+| 1 | Mon 2 Nov | **Binary search on answer** | 1011, 875, 410 | [ ✅ ] |
 | 2 | Tue 3 Nov | On answer, 2-D, precision | 1482, 74, 240, 69 | [ ] |
 | 3 | Wed 4 Nov | Reversal, cycles, merge | 206, 141, 876, 21, 160 | [ ] |
 | 4 | Thu 5 Nov | Partial reversal, nth-from-end, palindrome | 92, 19, 234, 2 | [ ] |
