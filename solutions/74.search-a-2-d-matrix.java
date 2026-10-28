@@ -56,9 +56,33 @@
 
 // @lc code=start
 class Solution {
-    public boolean searchMatrix(int[][] matrix, int target) {
-        
+    public boolean searchMatrix(int[][] a, int target) {
+        // i have to take a target and i have start and end,
+        // i just need to find the mid of thing
+
+        int n = a.length;
+        int m = a[0].length;
+
+        int i = 0;
+        int j = n*m - 1;
+
+        while(i<=j){
+            int mid = i + (j-i)/2;
+            int midI = mid/m;
+            int midJ = mid%m;
+
+            if(a[midI][midJ] == target){
+                return true;
+            }else if(a[midI][midJ] > target){
+                j = mid-1;
+            }else{
+                i = mid+1;
+            }
+        }
+
+        return false;
     }
 }
+
 // @lc code=end
 
